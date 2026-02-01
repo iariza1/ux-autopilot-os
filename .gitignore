@@ -1,0 +1,16 @@
+node_modules/
+dist/
+
+# Environment variables (never commit)
+.env
+.env.local
+.env*.local
+
+# Pipeline output (generated data)
+output/reports/
+output/data/
+
+/tmp/
+*.log
+.DS_Store
+.claude/settings.local.json

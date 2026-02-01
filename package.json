@@ -1,0 +1,26 @@
+{
+  "name": "ux-autopilot",
+  "version": "3.1.0",
+  "description": "Automated UX analysis pipeline using Microsoft Clarity and Claude Agent SDK",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "pipeline": "tsx src/standalone-pipeline.ts",
+    "pipeline:sdk": "tsx src/index.ts",
+    "fetch-clarity": "tsx src/scripts/fetch-clarity-data.ts"
+  },
+  "keywords": ["ux", "clarity", "claude", "agent-sdk", "pipeline"],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.1.0",
+    "dotenv": "^16.4.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

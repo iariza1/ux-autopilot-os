@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone*)",
+      "Bash(git pull*)",
+      "Bash(ls*)",
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  }
+}
