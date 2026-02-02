@@ -1,34 +1,56 @@
-# UX AutoPilot v3.1 — Investigation Mode
-
-Automated UX investigation pipeline that connects **Microsoft Clarity** behavioral analytics with your **source code**, producing self-contained **HTML reports** with copy-paste investigation prompts for any AI assistant (Claude, ChatGPT, Lovable, Cursor, etc.).
-
-> **Philosophy**: Instead of generating fixes that might be wrong, UX AutoPilot generates *investigation prompts* that guide a developer (or AI) to determine if an issue is a real bug, a false positive, a UX improvement opportunity, or needs more data.
+<p align="center">
+  <h1 align="center">🤖 UX AutoPilot</h1>
+  <p align="center">
+    <strong>AI agents that find UX bugs before your users complain.</strong>
+  </p>
+  <p align="center">
+    Connects Microsoft Clarity behavioral data → reads your source code → generates investigation prompts for any AI assistant.
+  </p>
+  <p align="center">
+    <a href="https://bit.ly/3OiHWmo">📬 Join the Waitlist</a> · 
+    <a href="#how-it-works">How It Works</a> · 
+    <a href="#quick-start">Quick Start</a> · 
+    <a href="https://github.com/iariza1/ux-autopilot-os/issues">Report Bug</a>
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" />
+    <img src="https://img.shields.io/badge/node-18%2B-green.svg" alt="Node" />
+    <img src="https://img.shields.io/badge/TypeScript-5.0-blue.svg" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/AI-Claude%20Sonnet-orange.svg" alt="Claude" />
+  </p>
+</p>
 
 ---
 
-## Table of Contents
+### The Problem
 
-- [How It Works](#how-it-works)
-- [Output Example](#output-example)
-- [Quick Start](#quick-start)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Pipeline Modes](#pipeline-modes)
-- [Architecture](#architecture)
-- [Agents](#agents)
-- [Clarity API](#clarity-api)
-- [HTML Report Structure](#html-report-structure)
-- [Slack Integration](#slack-integration)
-- [Scheduling (Cron)](#scheduling-cron)
-- [Project Structure](#project-structure)
-- [Types Reference](#types-reference)
-- [Severity Levels](#severity-levels)
-- [Customization](#customization)
-- [Costs](#costs)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+You have users. Some are rage-clicking. Some hit dead ends. Some leave and never come back. **Clarity shows you the numbers, but not the why.**
+
+### The Solution
+
+UX AutoPilot runs 3 AI agents in a pipeline:
+
+1. 🔍 **UX Detective** — extracts verified facts from Clarity (no guessing)
+2. 🧬 **Code Investigator** — reads your actual source code and generates hypotheses
+3. 📋 **Prompt Generator** — creates copy-paste prompts you can drop into Claude, ChatGPT, Cursor, or Lovable
+
+The output is a self-contained HTML report with everything you need to investigate and fix UX issues.
+
+> **No opinions. No hallucinated fixes. Just verified data + ranked hypotheses + a decision checklist.**
+
+---
+
+### 📬 Want the hosted version?
+
+We're building a hosted platform so you don't have to self-host. One click, daily reports, zero setup.
+
+**→ [Join the waitlist](https://bit.ly/3OiHWmo)** to get early access + updates on what we're building.
+
+---
+
+### ⭐ If this is useful, star the repo
+
+It helps others find it and tells us people care. Takes 1 second.
 
 ---
 
@@ -118,8 +140,8 @@ The pipeline produces a self-contained HTML file (~50KB) that looks like this:
 
 ```bash
 # 1. Clone this repository
-git clone https://github.com/YOUR_USER/UX_AutoPilot.git
-cd UX_AutoPilot
+git clone https://github.com/iariza1/ux-autopilot-os.git
+cd ux-autopilot-os
 
 # 2. Install dependencies
 npm install
@@ -137,6 +159,8 @@ npm run pipeline
 # 6. Open the report
 open output/reports/ux-investigation-*.html
 ```
+
+> 💡 **Need help setting up?** [Join the waitlist](https://bit.ly/3OiHWmo) — we're building a hosted version where you skip all of this.
 
 ---
 
@@ -157,8 +181,8 @@ open output/reports/ux-investigation-*.html
 
 ```bash
 # Clone
-git clone https://github.com/YOUR_USER/UX_AutoPilot.git
-cd UX_AutoPilot
+git clone https://github.com/iariza1/ux-autopilot-os.git
+cd ux-autopilot-os
 
 # Install dependencies
 npm install
@@ -199,7 +223,7 @@ GITHUB_TOKEN=ghp_...                   # For cloning private repos
 CLARITY_PROJECT_ID=your-project-id     # Your Clarity project URL/ID
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/T.../B.../...
 
-# Target repository (defaults to iariza1/toma-app-web-2)
+# Target repository (defaults to your-org/your-repo)
 TARGET_REPO=your-org/your-repo
 ```
 
@@ -533,7 +557,7 @@ crontab -e
 
 Add this line:
 ```
-0 9 * * * /path/to/UX_AutoPilot/run-pipeline.sh >> /var/log/ux-pipeline.log 2>&1
+0 9 * * * /path/to/ux-autopilot-os/run-pipeline.sh >> /var/log/ux-pipeline.log 2>&1
 ```
 
 The shell script:
@@ -757,10 +781,26 @@ If this fails, ensure you have all dependencies installed (`npm install`) and ar
 
 ---
 
+## Contributing
+
+Found a bug? Want to add a feature? PRs are welcome.
+
+1. Fork the repo
+2. Create your branch (`git checkout -b feature/my-feature`)
+3. Commit your changes
+4. Push and open a PR
+
+---
+
 ## License
 
 MIT
 
 ---
 
-*Built with Claude Sonnet, Microsoft Clarity, and TypeScript.*
+<p align="center">
+  Built with Claude Sonnet, Microsoft Clarity, and TypeScript.
+  <br />
+  <br />
+  <a href="https://bit.ly/3OiHWmo"><strong>📬 Join the waitlist for the hosted platform →</strong></a>
+</p>
